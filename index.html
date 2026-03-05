@@ -1,58 +1,90 @@
 <style>
-  .dsm-wrap *{margin:0;padding:0;box-sizing:border-box}
-  .dsm-wrap{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#f4faf7;padding:0;margin:0;width:100%}
-  .dsm-inner{width:100%;max-width:100%;margin:0 auto}
-  .dsm-fh{text-align:center;padding:14px 16px 10px;background:#fff;border-bottom:1px solid #e8f4ee}
-  .dsm-badge{display:inline-block;background:#e8f4ee;color:#4a8c6f;padding:3px 12px;border-radius:100px;font-size:.73rem;font-weight:700;letter-spacing:.5px;margin-bottom:6px}
-  .dsm-fh h2{font-size:1.15rem;font-weight:800;color:#1a2e24;letter-spacing:-.5px;margin:0}
-  .dsm-fh p{font-size:.78rem;color:#6b7280;margin-top:3px;line-height:1.5}
-  .dsm-pb{height:3px;background:#dde9e4;border-radius:0;margin:0}
-  .dsm-pf{height:100%;background:#4a8c6f;border-radius:0;transition:width .45s ease}
-  .dsm-pl{text-align:right;font-size:.68rem;color:#6b7280;padding:3px 12px 0;background:#fff}
-  .dsm-cw{background:#fff;border-radius:0;padding:14px 16px;box-shadow:none;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 90px)}
-  .dsm-chd{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #eef3f0}
-  .dsm-cav{width:42px;height:42px;border-radius:50%;background:#4a8c6f;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-  .dsm-chi h4{font-size:.93rem;font-weight:700;color:#1a2e24;margin:0}
-  .dsm-chi p{font-size:.74rem;color:#6b7280;margin:0}
+  .dsm *{margin:0;padding:0;box-sizing:border-box}
+  .dsm{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:linear-gradient(160deg,#f0f9f4,#e8f4ee);padding:20px 16px;width:100%}
+  .dsm-inner{width:100%;max-width:540px;margin:0 auto}
+
+  /* Header */
+  .dsm-fh{text-align:center;margin-bottom:16px}
+  .dsm-badge{display:inline-block;background:#c8e6d4;color:#2e7d55;padding:4px 14px;border-radius:100px;font-size:.8rem;font-weight:700;margin-bottom:8px}
+  .dsm-fh h2{font-size:1.25rem;font-weight:800;color:#1a2e24}
+  .dsm-fh p{font-size:.88rem;color:#5a7060;margin-top:4px;line-height:1.55}
+
+  /* Progress */
+  .dsm-prog-wrap{margin-bottom:12px}
+  .dsm-pb{height:5px;background:#d0e8da;border-radius:100px;overflow:hidden}
+  .dsm-pf{height:100%;background:#4a8c6f;border-radius:100px;transition:width .45s ease}
+  .dsm-pl{text-align:right;font-size:.75rem;color:#7a9a85;margin-top:4px}
+
+  /* Chat card */
+  .dsm-cw{background:#fff;border-radius:22px;padding:18px 16px 16px;box-shadow:0 6px 28px rgba(74,140,111,.14);display:flex;flex-direction:column;gap:12px}
+
+  /* Chat header */
+  .dsm-chd{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1.5px solid #eef4f0}
+  .dsm-cav{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4a8c6f,#6aab8a);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 2px 8px rgba(74,140,111,.3)}
+  .dsm-chi h4{font-size:.95rem;font-weight:700;color:#1a2e24}
+  .dsm-chi p{font-size:.78rem;color:#7a9a85;margin-top:1px}
   .dsm-onl{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:4px}
-  .dsm-msgs{display:flex;flex-direction:column;gap:11px;flex:1}
-  .dsm-msg{display:flex;align-items:flex-end;gap:8px;animation:dsmFu .3s ease}
+
+  /* Messages */
+  .dsm-msgs{display:flex;flex-direction:column;gap:10px;min-height:260px}
+  .dsm-msg{display:flex;align-items:flex-end;gap:7px;animation:dsmFu .3s ease}
   .dsm-msg.u{flex-direction:row-reverse}
-  @keyframes dsmFu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-  .dsm-bub{max-width:78%;padding:10px 14px;border-radius:18px;font-size:.87rem;line-height:1.65;white-space:pre-line}
+  @keyframes dsmFu{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+  .dsm-bub{max-width:80%;padding:10px 14px;border-radius:18px;font-size:.9rem;line-height:1.65;white-space:pre-line}
   .dsm-bub.b{background:#e8f4ee;color:#1a2e24;border-bottom-left-radius:4px}
-  .dsm-bub.ub{background:#4a8c6f;color:#fff;border-bottom-right-radius:4px}
-  .dsm-mav{width:27px;height:27px;border-radius:50%;background:#4a8c6f;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
+  .dsm-bub.ub{background:linear-gradient(135deg,#4a8c6f,#5a9e7f);color:#fff;border-bottom-right-radius:4px}
+
+  .dsm-mav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#4a8c6f,#6aab8a);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+  /* Typing */
   .dsm-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:#e8f4ee;border-radius:18px;border-bottom-left-radius:4px;width:fit-content}
   .dsm-dot{width:7px;height:7px;background:#6aab8a;border-radius:50%;animation:dsmBn 1.2s infinite}
   .dsm-dot:nth-child(2){animation-delay:.2s}.dsm-dot:nth-child(3){animation-delay:.4s}
   @keyframes dsmBn{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-  .dsm-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
-  .dsm-opt{background:#fff;border:1.5px solid #4a8c6f;color:#4a8c6f;padding:7px 14px;border-radius:100px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+
+  /* Divider */
+  .dsm-div{height:1px;background:#eef4f0;margin:2px 0}
+
+  /* Options */
+  .dsm-opts{display:flex;flex-wrap:wrap;gap:8px;padding-top:2px}
+  .dsm-opt{background:#fff;border:1.5px solid #4a8c6f;color:#4a8c6f;padding:8px 15px;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
   .dsm-opt:hover,.dsm-opt.sel{background:#4a8c6f;color:#fff}
   .dsm-opt:disabled{opacity:.4;cursor:default}
-  .dsm-ir{display:flex;gap:9px}
-  .dsm-ci{flex:1;border:1.5px solid #e5e7eb;border-radius:100px;padding:10px 16px;font-size:.87rem;outline:none;transition:border .2s;font-family:inherit;color:#1a2e24}
-  .dsm-ci:focus{border-color:#4a8c6f}
-  .dsm-sb{background:#4a8c6f;color:#fff;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
+
+  /* Input */
+  .dsm-ir{display:flex;gap:8px;padding-top:2px}
+  .dsm-ci{flex:1;border:1.5px solid #d0e8da;border-radius:100px;padding:11px 16px;font-size:.9rem;outline:none;transition:border .2s;font-family:inherit;color:#1a2e24;background:#f9fdfb}
+  .dsm-ci:focus{border-color:#4a8c6f;background:#fff}
+  .dsm-sb{background:#4a8c6f;color:#fff;border:none;border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0;box-shadow:0 2px 8px rgba(74,140,111,.3)}
   .dsm-sb:hover{background:#1a2e24}
-  .dsm-sum{background:#e8f4ee;border-radius:14px;padding:15px 17px;font-size:.83rem;line-height:2;color:#1a2e24;border:1.5px solid #c8e6d4;margin-top:2px}
-  .dsm-sum strong{display:block;font-size:.88rem;margin-bottom:4px}
-  .dsm-st{text-align:center;font-size:.79rem;padding:8px 14px;border-radius:10px;margin-top:4px}
+
+  /* Summary */
+  .dsm-sum{background:#f0f9f4;border-radius:14px;padding:14px 16px;font-size:.87rem;line-height:1.9;color:#1a2e24;border:1.5px solid #c8e6d4}
+  .dsm-sum strong{display:block;font-size:.9rem;margin-bottom:6px;color:#2e7d55}
+
+  /* Status */
+  .dsm-st{text-align:center;font-size:.82rem;padding:9px 14px;border-radius:12px;margin-top:4px;font-weight:600}
   .dsm-st.ok{background:#dcfce7;color:#166534}
   .dsm-st.fail{background:#fee2e2;color:#991b1b}
-  .dsm-rr{text-align:center;margin-top:10px}
+
+  .dsm-rr{text-align:center;margin-top:8px}
 </style>
 
-<div class="dsm-wrap">
+<div class="dsm">
   <div class="dsm-inner">
+
     <div class="dsm-fh">
       <div class="dsm-badge">🌿 아트라이프 다솜</div>
       <h2>프로그램 신청 & 문의</h2>
-      <p>다소미가 단계별로 안내해드릴게요. 편하게 대화해주세요 😊</p>
+      <p>다소미가 단계별로 안내해드릴게요 😊</p>
     </div>
-    <div class="dsm-pb"><div class="dsm-pf" id="dsmProg" style="width:8%"></div></div>
-    <div class="dsm-pl" id="dsmPl">1 / 6 단계</div>
+
+    <div class="dsm-prog-wrap">
+      <div class="dsm-pb"><div class="dsm-pf" id="dsmProg" style="width:8%"></div></div>
+      <div class="dsm-pl" id="dsmPl">1 / 6 단계</div>
+    </div>
+
     <div class="dsm-cw">
       <div class="dsm-chd">
         <div class="dsm-cav">🌿</div>
@@ -62,25 +94,27 @@
         </div>
       </div>
       <div class="dsm-msgs" id="dsmMsgs"></div>
+      <div class="dsm-div"></div>
       <div id="dsmIa"></div>
     </div>
+
   </div>
 </div>
 
 <script>
 (function(){
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxMw69ZKydT_i8KgDo1IPxxqxa8yZ65X373UG7tzEwIX1qw0yGwKjMzf-YMHi-Yq2tK/exec';
-  const STEPS = [
-    { bot:'안녕하세요! 👋\n저는 아트라이프 다솜의 신청 도우미 다소미예요.\n\n어떤 분야로 문의 또는 신청하시나요?', type:'opts', opts:['프로그램 참여 신청','기관 협력 문의','후원 문의','ESG 파트너십'], key:'type' },
-    { bot:'관심 있으신 프로그램을 선택해주세요 🎨', type:'opts', opts:['H.A.T. 예술치유 후원 프로젝트','웰에이징 아트문화','ESG 예술 창작 및 캠페인','치유돌봄 전문인력 양성'], key:'program' },
-    { bot:'성함을 입력해주세요 😊', type:'text', ph:'예) 홍길동', key:'name' },
-    { bot:'연락 가능한 전화번호 또는 이메일을 입력해주세요.', type:'text', ph:'예) 010-0000-0000', key:'contact' },
-    { bot:'소속 기관이나 단체명을 알려주세요.\n개인 신청이시면 "개인"으로 입력해주세요.', type:'text', ph:'예) ○○복지센터 / 개인', key:'org' },
-    { bot:'마지막으로, 추가 전달 내용을 자유롭게 입력해주세요.\n없으시면 "없음"을 입력해주세요.', type:'text', ph:'문의 내용을 입력해주세요.', key:'note' }
+  const SHEET_URL='https://script.google.com/macros/s/AKfycbxMw69ZKydT_i8KgDo1IPxxqxa8yZ65X373UG7tzEwIX1qw0yGwKjMzf-YMHi-Yq2tK/exec';
+  const STEPS=[
+    {bot:'안녕하세요! 👋\n저는 아트라이프 다솜의 신청 도우미 다소미예요.\n\n어떤 분야로 문의 또는 신청하시나요?',type:'opts',opts:['프로그램 참여 신청','기관 협력 문의','후원 문의','ESG 파트너십'],key:'type'},
+    {bot:'관심 있으신 프로그램을 선택해주세요 🎨',type:'opts',opts:['H.A.T. 예술치유 후원 프로젝트','웰에이징 아트문화','ESG 예술 창작 및 캠페인','치유돌봄 전문인력 양성'],key:'program'},
+    {bot:'성함을 입력해주세요 😊',type:'text',ph:'예) 홍길동',key:'name'},
+    {bot:'연락 가능한 전화번호 또는 이메일을 입력해주세요.',type:'text',ph:'예) 010-0000-0000',key:'contact'},
+    {bot:'소속 기관이나 단체명을 알려주세요.\n개인 신청이시면 "개인"으로 입력해주세요.',type:'text',ph:'예) ○○복지센터 / 개인',key:'org'},
+    {bot:'마지막으로, 추가 전달 내용을 자유롭게 입력해주세요.\n없으시면 "없음"을 입력해주세요.',type:'text',ph:'문의 내용을 입력해주세요.',key:'note'}
   ];
 
-  let step=0, ans={};
-  const msgs=document.getElementById('dsmMsgs'), ia=document.getElementById('dsmIa');
+  let step=0,ans={};
+  const msgs=document.getElementById('dsmMsgs'),ia=document.getElementById('dsmIa');
 
   function updProg(){
     const p=Math.round((step/STEPS.length)*88)+8;
@@ -90,47 +124,47 @@
 
   function addBot(txt){
     return new Promise(res=>{
-      const tr=document.createElement('div'); tr.className='dsm-msg'; tr.id='dsmTyp';
-      const av=document.createElement('div'); av.className='dsm-mav'; av.textContent='🌿';
-      const t=document.createElement('div'); t.className='dsm-typing';
+      const tr=document.createElement('div');tr.className='dsm-msg';tr.id='dsmTyp';
+      const av=document.createElement('div');av.className='dsm-mav';av.textContent='🌿';
+      const t=document.createElement('div');t.className='dsm-typing';
       t.innerHTML='<div class="dsm-dot"></div><div class="dsm-dot"></div><div class="dsm-dot"></div>';
-      tr.appendChild(av); tr.appendChild(t); msgs.appendChild(tr); msgs.scrollTop=msgs.scrollHeight;
+      tr.appendChild(av);tr.appendChild(t);msgs.appendChild(tr);msgs.scrollTop=msgs.scrollHeight;
       setTimeout(()=>{
         document.getElementById('dsmTyp')?.remove();
-        const r=document.createElement('div'); r.className='dsm-msg';
-        const a=document.createElement('div'); a.className='dsm-mav'; a.textContent='🌿';
-        const b=document.createElement('div'); b.className='dsm-bub b'; b.textContent=txt;
-        r.appendChild(a); r.appendChild(b); msgs.appendChild(r); msgs.scrollTop=msgs.scrollHeight; res();
+        const r=document.createElement('div');r.className='dsm-msg';
+        const a=document.createElement('div');a.className='dsm-mav';a.textContent='🌿';
+        const b=document.createElement('div');b.className='dsm-bub b';b.textContent=txt;
+        r.appendChild(a);r.appendChild(b);msgs.appendChild(r);msgs.scrollTop=msgs.scrollHeight;res();
       },820);
     });
   }
 
   function addUser(txt){
-    const r=document.createElement('div'); r.className='dsm-msg u';
-    const b=document.createElement('div'); b.className='dsm-bub ub'; b.textContent=txt;
-    r.appendChild(b); msgs.appendChild(r); msgs.scrollTop=msgs.scrollHeight;
+    const r=document.createElement('div');r.className='dsm-msg u';
+    const b=document.createElement('div');b.className='dsm-bub ub';b.textContent=txt;
+    r.appendChild(b);msgs.appendChild(r);msgs.scrollTop=msgs.scrollHeight;
   }
 
   async function showStep(){
     if(step>=STEPS.length){showDone();return;}
-    ia.innerHTML=''; updProg();
+    ia.innerHTML='';updProg();
     const s=STEPS[step];
     await addBot(s.bot);
     if(s.type==='opts'){
-      const row=document.createElement('div'); row.className='dsm-opts';
+      const row=document.createElement('div');row.className='dsm-opts';
       s.opts.forEach(o=>{
-        const btn=document.createElement('button'); btn.className='dsm-opt'; btn.textContent=o;
-        btn.onclick=()=>{ row.querySelectorAll('.dsm-opt').forEach(b=>b.disabled=true); btn.classList.add('sel'); addUser(o); ans[s.key]=o; step++; setTimeout(showStep,350); };
+        const btn=document.createElement('button');btn.className='dsm-opt';btn.textContent=o;
+        btn.onclick=()=>{row.querySelectorAll('.dsm-opt').forEach(b=>b.disabled=true);btn.classList.add('sel');addUser(o);ans[s.key]=o;step++;setTimeout(showStep,350);};
         row.appendChild(btn);
       });
       ia.appendChild(row);
     } else {
-      const row=document.createElement('div'); row.className='dsm-ir';
-      const inp=document.createElement('input'); inp.className='dsm-ci'; inp.placeholder=s.ph||'';
-      const btn=document.createElement('button'); btn.className='dsm-sb'; btn.innerHTML='➤';
-      const go=()=>{ const v=inp.value.trim(); if(!v)return; addUser(v); ans[s.key]=v; ia.innerHTML=''; step++; setTimeout(showStep,350); };
-      btn.onclick=go; inp.addEventListener('keydown',e=>{if(e.key==='Enter')go();});
-      row.appendChild(inp); row.appendChild(btn); ia.appendChild(row);
+      const row=document.createElement('div');row.className='dsm-ir';
+      const inp=document.createElement('input');inp.className='dsm-ci';inp.placeholder=s.ph||'';
+      const btn=document.createElement('button');btn.className='dsm-sb';btn.innerHTML='➤';
+      const go=()=>{const v=inp.value.trim();if(!v)return;addUser(v);ans[s.key]=v;ia.innerHTML='';step++;setTimeout(showStep,350);};
+      btn.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go();});
+      row.appendChild(inp);row.appendChild(btn);ia.appendChild(row);
       setTimeout(()=>inp.focus(),100);
     }
   }
@@ -140,29 +174,25 @@
     document.getElementById('dsmProg').style.width='100%';
     document.getElementById('dsmPl').textContent='완료! 🎉';
     await addBot(`감사합니다, ${ans.name}님! 🌿\n\n신청이 완료되었어요.\n담당자가 ${ans.contact}로 빠르게 연락드릴게요.\n\n아트라이프 다솜과 함께해 주셔서 감사합니다 💚`);
-    const r=document.createElement('div'); r.className='dsm-msg';
-    const av=document.createElement('div'); av.className='dsm-mav'; av.textContent='🌿';
-    const c=document.createElement('div'); c.className='dsm-sum';
+    const r=document.createElement('div');r.className='dsm-msg';
+    const av=document.createElement('div');av.className='dsm-mav';av.textContent='🌿';
+    const c=document.createElement('div');c.className='dsm-sum';
     c.innerHTML=`<strong>📋 신청 요약</strong>신청 유형: <b>${ans.type}</b><br>관심 프로그램: <b>${ans.program}</b><br>성함: <b>${ans.name}</b><br>연락처: <b>${ans.contact}</b><br>소속: <b>${ans.org}</b><br>문의 내용: <b>${ans.note}</b>`;
-    r.appendChild(av); r.appendChild(c); msgs.appendChild(r); msgs.scrollTop=msgs.scrollHeight;
+    r.appendChild(av);r.appendChild(c);msgs.appendChild(r);msgs.scrollTop=msgs.scrollHeight;
     sendToSheet();
-    const rr=document.createElement('div'); rr.className='dsm-rr';
-    const rb=document.createElement('button'); rb.className='dsm-opt'; rb.textContent='🔄 처음부터 다시 신청하기';
-    rb.onclick=()=>{ step=0; ans={}; msgs.innerHTML=''; ia.innerHTML=''; document.getElementById('dsmProg').style.width='8%'; document.getElementById('dsmPl').textContent='1 / 6 단계'; showStep(); };
-    rr.appendChild(rb); ia.appendChild(rr);
+    const rr=document.createElement('div');rr.className='dsm-rr';
+    const rb=document.createElement('button');rb.className='dsm-opt';rb.textContent='🔄 처음부터 다시 신청하기';
+    rb.onclick=()=>{step=0;ans={};msgs.innerHTML='';ia.innerHTML='';document.getElementById('dsmProg').style.width='8%';document.getElementById('dsmPl').textContent='1 / 6 단계';showStep();};
+    rr.appendChild(rb);ia.appendChild(rr);
   }
 
   function sendToSheet(){
-    const params=new URLSearchParams({
-      date:new Date().toLocaleString('ko-KR'),
-      type:ans.type, program:ans.program, name:ans.name,
-      contact:ans.contact, org:ans.org, note:ans.note
-    });
+    const params=new URLSearchParams({date:new Date().toLocaleString('ko-KR'),type:ans.type,program:ans.program,name:ans.name,contact:ans.contact,org:ans.org,note:ans.note});
     new Image().src=SHEET_URL+'?'+params.toString();
     showSt('✅ 신청이 완료되었습니다! 담당자가 곧 연락드릴게요.','ok');
   }
 
-  function showSt(msg,type){ const el=document.createElement('div'); el.className=`dsm-st ${type}`; el.textContent=msg; ia.prepend(el); }
+  function showSt(msg,type){const el=document.createElement('div');el.className=`dsm-st ${type}`;el.textContent=msg;ia.prepend(el);}
 
   setTimeout(showStep,500);
 })();
